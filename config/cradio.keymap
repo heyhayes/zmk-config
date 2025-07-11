@@ -46,7 +46,7 @@
 
         functional {
             bindings = <
-&trans   &trans  &trans      &trans      &trans              &trans               &trans          &kp C_VOL_DN  &kp C_VOLUME_UP      &kp C_MUTE
+&trans   &trans  &trans      &trans      &trans              &trans               &kp C_VOL_DN    &kp C_VOLUME_UP      &kp C_MUTE &kp BACKSPACE
 &kp TAB  &to 5   &trans      &trans      &trans              &mt HOME LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &mt END RIGHT_ARROW  &kp LG(EQUAL)
 &trans    &to 3  &kp C_PREV  &kp C_NEXT  &kp C_PLAY_PAUSE    &kp LS(LC(TAB))      &kp LS(TAB)     &kp TAB       &kp LC(TAB)          &kp LG(MINUS)
                              &to 0       &trans              &trans               &to 4
@@ -64,7 +64,7 @@
 
         numbers {
             bindings = <
-&none   &none   &none                  &none            &kp PLUS        &kp MINUS    &none             &none             &none       &none
+&none   &none   &none                  &none            &kp PLUS        &kp MINUS    &none             &none             &none       &kp BSPC
 &kp N1  &kp N2  &ht LEFT_ALT NUMBER_3  &ht LEFT_GUI N4  &kp EQUAL       &kp PERCENT  &ht RIGHT_GUI N6  &ht RIGHT_ALT N7  &kp N8      &kp N9
 &none   &none   &none                  &kp N5           &kp ASTERISK    &kp SLASH    &kp N0            &kp COMMA         &kp PERIOD  &none
                                        &to 0            &none           &none        &to 1
