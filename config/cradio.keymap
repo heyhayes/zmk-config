@@ -29,7 +29,7 @@
         base {
             bindings = <
 &kp Q  &kp W  &kp F  &kp P                 &kp B        &kp J                 &kp L  &kp U      &kp Y    &kp BSPC
-&kp A  &kp R  &kp S  &kp T                 &kp G        &kp M                 &kp N  &kp E      &kp I    &kp O
+HRML(A,    R,     S,     T)           &kp G        &kp M           HRMR(N,     E,     I,     O)
 &kp Z  &kp X  &kp C  &kp D                 &kp V        &kp K                 &kp H  &kp COMMA  &kp DOT  &kp FSLH
                      &mt LEFT_CONTROL ESC  &kp ENTER    &mt LEFT_SHIFT SPACE  &to 1
             >;
@@ -38,7 +38,7 @@
         punctuation {
             bindings = <
 &kp Q      &kp AT_SIGN     &kp HASH   &kp DOLLAR  &kp PERCENT        &kp CARET  &kp AMPS         &kp ASTERISK           &kp PLUS           &kp BACKSPACE
-&kp TAB    &kp EQUAL       &kp SQT    &kp DQT     &kp EXCLAMATION    &kp BSLH   &kp LEFT_BRACE   &kp LEFT_PARENTHESIS   &kp LEFT_BRACKET   &kp SEMICOLON
+HRML(TAB,      EQUAL,        SQT,       DQT)     &kp EXCLAMATION    &kp BSLH   HRMR(LEFT_BRACE,   LEFT_PARENTHESIS,   LEFT_BRACKET,   SEMICOLON)
 &kp TILDE  &kp UNDERSCORE  &kp MINUS  &kp COLON   &kp GRAVE          &kp PIPE   &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp FSLH
                                       &to 0       &trans             &trans     &to 2
             >;
@@ -65,7 +65,7 @@
         numbers {
             bindings = <
 &none   &none   &none                  &none            &kp PLUS        &kp MINUS    &none             &none             &none       &kp BSPC
-&kp N1  &kp N2  &ht LEFT_ALT NUMBER_3  &ht LEFT_GUI N4  &kp EQUAL       &kp PERCENT  &ht RIGHT_GUI N6  &ht RIGHT_ALT N7  &kp N8      &kp N9
+HRML(N1,    N2,     NUMBER_3,     N4)           &kp EQUAL       &kp PERCENT  HRMR(N6,     N7,     N8,     N9)
 &none   &none   &none                  &kp N5           &kp ASTERISK    &kp SLASH    &kp N0            &kp COMMA         &kp PERIOD  &none
                                        &to 0            &none           &none        &to 1
             >;
