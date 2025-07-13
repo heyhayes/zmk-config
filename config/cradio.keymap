@@ -58,7 +58,7 @@ HRML(TAB,      EQUAL,        SQT,       DQT)     &kp EXCLAMATION    &kp BSLH   H
 &sys_reset   &trans  &trans  &trans      &bt BT_SEL 0    &trans  &trans  &trans  &trans  &sys_reset
 &bootloader  &trans  &trans  &trans      &bt BT_SEL 1    &trans  &trans  &trans  &trans  &bootloader
 &trans       &trans  &trans  &bt BT_CLR  &bt BT_SEL 2    &trans  &trans  &trans  &trans  &trans
-                             &trans      &trans          &trans  &trans
+                             &to 0      &trans          &trans  &trans
             >;
         };
 
@@ -76,7 +76,7 @@ HRML(N1,    N2,     NUMBER_3,     N4)           &kp EQUAL       &kp PERCENT  HRM
 &trans  &trans  &trans  &trans  &trans    &trans  &trans   &trans   &trans   &trans
 &kp F1  &kp F2  &kp F3  &kp F4  &trans    &trans  &kp F6   &kp F7   &kp F8   &kp F9
 &trans  &trans  &trans  &kp F5  &trans    &trans  &kp F10  &kp F11  &kp F12  &trans
-                        &trans  &trans    &trans  &trans
+                        &to 0  &trans    &trans  &trans
             >;
         };
 
