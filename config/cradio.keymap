@@ -7,8 +7,8 @@
 
 // Home row mods macro
 
-#define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LALT k2  &ht LCTRL k3  &ht LGUI k4
-#define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RCTRL k2  &ht RALT k3  &ht RSHFT k4
+#define HRML(k1,k2,k3,k4) &kp k1  &kp k2  &ht LALT k3  &ht LGUI k4
+#define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RALT k2  &kp k3  &kp k4
 
 / {
     behaviors {
@@ -31,7 +31,7 @@
 &kp Q  &kp W  &kp F  &kp P                 &kp B        &kp J                 &kp L  &kp U      &kp Y    &kp BSPC
 HRML(A,    R,     S,     T)           &kp G        &kp M           HRMR(N,     E,     I,     O)
 &kp Z  &kp X  &kp C  &kp D                 &kp V        &kp K                 &kp H  &kp COMMA  &kp DOT  &kp FSLH
-                     &mt LEFT_CONTROL ESC  &kp ENTER    &mt LEFT_SHIFT SPACE  &to 1
+                     &mt LEFT_CONTROL ESC  &mt LEFT_SHIFT ENTER    &mt RIGHT_SHIFT SPACE  &to 1
             >;
         };
 
@@ -47,36 +47,39 @@ HRML(TAB,      EQUAL,        SQT,       DQT)     &kp EXCLAMATION    &kp BSLH   H
         functional {
             bindings = <
 &trans   &trans  &trans      &trans      &trans              &trans               &kp C_VOL_DN    &kp C_VOLUME_UP      &kp C_MUTE &kp BACKSPACE
-&kp TAB  &to 5   &trans      &trans      &trans              &mt HOME LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &mt END RIGHT_ARROW  &kp LG(EQUAL)
-&trans    &to 3  &kp C_PREV  &kp C_NEXT  &kp C_PLAY_PAUSE    &kp LS(LC(TAB))      &kp LS(TAB)     &kp TAB       &kp LC(TAB)          &kp LG(MINUS)
-                             &to 0       &trans              &trans               &to 4
+&kp TAB  &to 4   &trans      &trans      &trans              &mt HOME LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &mt END RIGHT_ARROW  &kp LG(EQUAL)
+&to 5    &trans  &kp C_PREV  &kp C_NEXT  &kp C_PLAY_PAUSE    &kp LS(LC(TAB))      &kp LS(TAB)     &kp TAB       &kp LC(TAB)          &kp LG(MINUS)
+                             &to 0       &trans              &trans               &to 3
             >;
         };
 
-        bluetooth {
-            bindings = <
-&sys_reset   &trans  &trans  &trans      &bt BT_SEL 0    &trans  &trans  &trans  &trans  &sys_reset
-&bootloader  &trans  &trans  &trans      &bt BT_SEL 1    &trans  &trans  &trans  &trans  &bootloader
-&trans       &trans  &trans  &bt BT_CLR  &bt BT_SEL 2    &trans  &trans  &trans  &trans  &trans
-                             &to 0      &trans          &trans  &trans
-            >;
-        };
 
         numbers {
             bindings = <
 &none   &none   &none                  &none            &kp PLUS        &kp MINUS    &none             &none             &none       &kp BSPC
 HRML(N1,    N2,     NUMBER_3,     N4)           &kp EQUAL       &kp PERCENT  HRMR(N6,     N7,     N8,     N9)
 &none   &none   &none                  &kp N5           &kp ASTERISK    &kp SLASH    &kp N0            &kp COMMA         &kp PERIOD  &none
-                                       &to 0            &none           &none        &to 1
+                                       &to 0            &trans           &trans        &to 1
             >;
         };
 
+
+
         function {
             bindings = <
-&trans  &trans  &trans  &trans  &trans    &trans  &trans   &trans   &trans   &trans
-&kp F1  &kp F2  &kp F3  &kp F4  &trans    &trans  &kp F6   &kp F7   &kp F8   &kp F9
-&trans  &trans  &trans  &kp F5  &trans    &trans  &kp F10  &kp F11  &kp F12  &trans
-                        &to 0  &trans    &trans  &trans
+&none  &none  &none  &none  &none    &none  &none   &none   &none   &none
+&kp F1  &kp F2  &kp F3  &kp F4  &none    &none  &kp F6   &kp F7   &kp F8   &kp F9
+&none  &none  &none  &kp F5  &none    &none  &kp F10  &kp F11  &kp F12  &none
+                        &to 0  &trans    &trans  &none
+            >;
+        };
+
+        bluetooth {
+            bindings = <
+&sys_reset   &none  &none  &none      &bt BT_SEL 0    &none  &none  &none  &none  &sys_reset
+&bootloader  &none  &none  &none      &bt BT_SEL 1    &none  &none  &none  &none  &bootloader
+&none       &none  &none  &bt BT_CLR  &bt BT_SEL 2    &none  &none  &none  &none  &none
+                             &to 0      &trans          &trans  &none
             >;
         };
 
