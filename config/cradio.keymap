@@ -21,6 +21,15 @@
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
+        
+        mo_tog: mo_tog {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&mo>, <&to>;
+        };
     };
 
     keymap {
@@ -31,15 +40,15 @@
 &kp Q  &kp W  &kp F  &kp P                 &kp B        &kp J                 &kp L  &kp U      &kp Y    &kp BSPC
 HRML(A,    R,     S,     T)           &kp G        &kp M           HRMR(N,     E,     I,     O)
 &kp Z  &kp X  &kp C  &kp D                 &kp V        &kp K                 &kp H  &kp COMMA  &kp DOT  &kp FSLH
-                     &mt LEFT_CONTROL ESC  &mt LEFT_SHIFT ENTER    &mt RIGHT_SHIFT SPACE  &to 1
+                     &mt LEFT_CONTROL ESC  &mt LEFT_SHIFT ENTER    &mt RIGHT_SHIFT SPACE  &mo_tog 1 1
             >;
         };
 
         punctuation {
             bindings = <
-&kp Q      &kp AT_SIGN     &kp HASH   &kp DOLLAR  &kp PERCENT        &kp CARET  &kp AMPS         &kp ASTERISK           &kp PLUS           &kp BACKSPACE
-HRML(TAB,      EQUAL,        SQT,       DQT)     &kp EXCLAMATION    &kp BSLH   HRMR(LEFT_BRACE,   LEFT_PARENTHESIS,   LEFT_BRACKET,   SEMICOLON)
-&kp TILDE  &kp UNDERSCORE  &kp MINUS  &kp COLON   &kp GRAVE          &kp PIPE   &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp FSLH
+&kp EXCLAMATION  &kp AT_SIGN     &kp HASH   &kp DOLLAR  &kp PERCENT        &kp CARET  &kp AMPS         &kp ASTERISK           &kp PLUS           &kp BACKSPACE
+HRML(TAB,      EQUAL,        SQT,       DQT)     &kp GRAVE          &kp BSLH   HRMR(LEFT_BRACE,   LEFT_PARENTHESIS,   LEFT_BRACKET,   SEMICOLON)
+&kp TILDE  &kp UNDERSCORE  &kp MINUS  &kp COLON   &kp LESS_THAN      &kp PIPE   &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET  &kp GREATER_THAN
                                       &to 0       &trans             &trans     &to 2
             >;
         };
