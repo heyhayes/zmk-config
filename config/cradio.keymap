@@ -52,6 +52,16 @@
             quick-tap-ms = <0>;
             bindings = <&kp>, <&sk>;
         };
+        
+        shift_enter: shift_enter {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SHIFT_ENTER";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            bindings = <&mo>, <&kp>;
+        };
     };
 
     // Combos for layer access
@@ -82,7 +92,7 @@
                 &kp Q    &kp W    &kp F    &kp P    &kp B     &kp J    &kp L    &kp U     &kp Y    &kp BSPC
                 &kp A    &kp R    &kp S    &kp T    &kp G     &kp M    &kp N    &kp E     &kp I    &kp O
                 &kp Z    &kp X    &kp C    &kp D    &kp V     &kp K    &kp H    &kp COMMA &kp DOT  &kp FSLH
-                                  &mo EXTEND &mo SHIFT  &kp SPACE &mo SYMBOLS
+                                  &mo EXTEND &shift_enter SHIFT RET  &kp SPACE &mo SYMBOLS
             >;
         };
 
