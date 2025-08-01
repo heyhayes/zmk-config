@@ -79,7 +79,7 @@ The keymap uses a Colemak-DH base layout with 6 total layers, custom one-shot mo
 ├───┼───┼───┼───┼───┤   ├───┼───┼───┼───┼───┤
 │ALT│GUI│SHF│CTL│ALT│   │PGD│ ← │ ↓ │ → │DEL│
 ├───┼───┼───┼───┼───┤   ├───┼───┼───┼───┼───┤
-│C-Z│C-X│C-C│C-V│GUI│   │INS│TAB│   │   │RET│
+│C-Z│C-X│C-C│GUI│C-V│   │INS│TAB│   │   │RET│
 └───┴───┴───┼───┼───┤   ├───┼───┼───┴───┴───┘
             │   │   │   │   │   │
             └───┴───┘   └───┴───┘
