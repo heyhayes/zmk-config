@@ -34,14 +34,14 @@ The keymap uses a Colemak-DH base layout with 6 total layers, custom one-shot mo
 ## Layer Access
 
 ### Direct Access (Hold Keys):
-- **EXTEND Layer**: Left outer thumb (hold)
-- **SHIFT Layer / ENTER**: Left inner thumb (hold for Shift, tap for Enter) - hold-preferred
-- **SPACE**: Right inner thumb (tap)
+- **EXTEND Layer / ESC**: Left outer thumb (hold for Extend, tap for Escape)
+- **CTRL / ENTER**: Left inner thumb (hold for Ctrl, tap for Enter) - hold-preferred
+- **SHIFT / SPACE**: Right inner thumb (hold for Shift, tap for Space) - hold-preferred
 - **SYMBOLS Layer**: Right outer thumb (hold)
 
 ### Combo Access:
-- **NUMBERS Layer**: Hold both inner thumb keys (SHIFT + SPACE)
-- **FUNCTION Layer**: Hold both outer thumb keys (EXTEND + SYMBOLS)
+- **NUMBERS Layer**: Hold both inner thumb keys (CTRL/ENTER + SHIFT/SPACE)
+- **FUNCTION Layer**: Hold both outer thumb keys (EXTEND/ESC + SYMBOLS)
 
 ## Complete Layer Layouts
 
@@ -54,7 +54,7 @@ The keymap uses a Colemak-DH base layout with 6 total layers, custom one-shot mo
 ├───┼───┼───┼───┼───┤   ├───┼───┼───┼───┼───┤
 │ Z │ X │ C │ D │ V │   │ K │ H │ , │ . │ / │
 └───┴───┴───┼───┼───┤   ├───┼───┼───┴───┴───┘
-            │EXT│S/E│   │SPC│SYM│
+            │E/E│C/E│   │S/S│SYM│
             └───┴───┘   └───┴───┘
 ```
 
@@ -89,7 +89,7 @@ The keymap uses a Colemak-DH base layout with 6 total layers, custom one-shot mo
 ### SYMBOLS Layer (3) - Programming Symbols
 ```
 ┌───┬───┬───┬───┬───┐   ┌───┬───┬───┬───┬───┐
-│ ! │ @ │ # │ $ │ % │   │ ^ │ ( │ ) │ _ │BSP│
+│ ! │ @ │ # │ $ │ % │   │ & │ ( │ ) │ _ │BSP│
 ├───┼───┼───┼───┼───┤   ├───┼───┼───┼───┼───┤
 │ALT│GUI│SHF│CTL│ALT│   │ | │ [ │ ] │ - │ ; │
 ├───┼───┼───┼───┼───┤   ├───┼───┼───┼───┼───┤
@@ -145,16 +145,22 @@ The keymap uses a Colemak-DH base layout with 6 total layers, custom one-shot mo
 #### Hold-Tap Configuration
 The keymap uses ZMK's hold-tap behavior for dual-function keys:
 
-- **Shift/Enter** (Left inner thumb): Hold-preferred dual function
+- **Extend/Escape** (Left outer thumb): Hold-preferred dual function
+  - Tap: Escape
+  - Hold: Extend layer
+  - Configured with 200ms tapping term and 125ms quick-tap
+
+- **Ctrl/Enter** (Left inner thumb): Hold-preferred dual function
   - Tap: Enter
-  - Hold: Shift layer  
+  - Hold: Control modifier
   - Hold-preferred means it favors the hold action when pressed with other keys
   - Configured with 200ms tapping term and 125ms quick-tap
 
-- **Space** (Right inner thumb): Also configured as hold-preferred Shift/Space
+- **Shift/Space** (Right inner thumb): Hold-preferred dual function
   - Tap: Space
   - Hold: Shift layer
   - Provides symmetric shift access from both hands
+  - Configured with 200ms tapping term and 125ms quick-tap
 
 #### One-Shot Modifiers
 Custom one-shot modifier behaviors provide comfortable modifier access without holding:
@@ -174,11 +180,11 @@ os_shift, os_ctrl, os_alt, os_gui
 Two combos provide access to additional layers:
 
 1. **Numbers Layer**: Inner thumb keys (positions 31+32)
-   - Left Shift/Enter + Right Space
+   - Left Ctrl/Enter + Right Shift/Space
    - 50ms timeout
 
 2. **Function Layer**: Outer thumb keys (positions 30+33)
-   - Left Extend + Right Symbols
+   - Left Extend/Escape + Right Symbols
    - 50ms timeout
 
 ### Building the Firmware
