@@ -62,6 +62,26 @@
             quick-tap-ms = <125>;
             bindings = <&mo>, <&kp>;
         };
+        
+        lt_esc: layer_tap_esc {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_ESC";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            bindings = <&mo>, <&kp>;
+        };
+        
+        ctrl_enter: ctrl_enter {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CTRL_ENTER";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     // Combos for layer access
@@ -92,7 +112,7 @@
                 &kp Q    &kp W    &kp F    &kp P    &kp B     &kp J    &kp L    &kp U     &kp Y    &kp BSPC
                 &kp A    &kp R    &kp S    &kp T    &kp G     &kp M    &kp N    &kp E     &kp I    &kp O
                 &kp Z    &kp X    &kp C    &kp D    &kp V     &kp K    &kp H    &kp COMMA &kp DOT  &kp FSLH
-                                  &mo EXTEND &shift_enter SHIFT RET  &shift_enter SHIFT SPACE &mo SYMBOLS
+                                  &lt_esc EXTEND ESC &ctrl_enter LCTRL RET  &shift_enter SHIFT SPACE &mo SYMBOLS
             >;
         };
 
@@ -119,7 +139,7 @@
         // SYMBOLS Layer
         symbols_layer {
             bindings = <
-                &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT     &kp CARET &kp LPAR  &kp RPAR  &kp UNDER &kp BSPC
+                &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT     &kp AMPS  &kp LPAR  &kp RPAR  &kp UNDER &kp BSPC
                 &os_alt LALT LALT  &os_gui LGUI LGUI  &os_shift LSHFT LSHFT &os_ctrl LCTRL LCTRL &os_alt RALT RALT      &kp PIPE  &kp LBKT  &kp RBKT  &kp MINUS &kp SEMI
                 &kp GRAVE &kp TILDE &kp APOS  &kp DQT   &kp COLON     &kp BSLH  &kp LBRC  &kp RBRC  &kp PLUS  &kp EQUAL
                                     &none     &none     &none         &trans
