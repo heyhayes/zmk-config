@@ -46,6 +46,16 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+        
+        mt_spc: mod_tap_space {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOD_TAP_SPACE";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            flavor = "hold-preferred";
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     // Combos can be added here if needed
@@ -62,7 +72,7 @@
                 &kp Q       &kp W       &kp F       &kp P        &kp B             &kp J       &kp L        &kp U        &kp Y       &kp BSPC
                 &kp A       &kp R       &hm LALT S  &hm LGUI T   &kp G             &kp M       &hm RGUI N   &hm RALT E   &kp I       &kp O
                 &kp Z       &kp X       &kp C       &kp D        &kp V             &kp K       &kp H        &kp COMMA    &kp DOT     &kp FSLH
-                                        &mt_esc RCTRL ESC  &mt_ent LSHFT RET       &kp SPACE   &sl PUNCT
+                                        &mt_esc RCTRL ESC  &mt_ent LSHFT RET       &mt_spc LSHFT SPACE &sl PUNCT
             >;
         };
 
