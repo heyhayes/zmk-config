@@ -21,10 +21,11 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            flavor = "balanced";
             bindings = <&kp>, <&kp>;
+            require-prior-idle-ms = <150>;
         };
         
         mt_esc: mod_tap_escape {
