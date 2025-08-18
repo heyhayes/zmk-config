@@ -13,10 +13,31 @@
 #define ALT_ARROWS 5
 #define MOUSE 6
 #define QWERTY 7
+#define GRAPHITE 8
+
+// Default base layer - change this to switch layouts
+#define DEFAULT_LAYER BASE  // Options: BASE (Colemak), QWERTY, GRAPHITE
 
 / {
     // Mod-tap and layer-tap behaviors
     behaviors {
+        set_colemak: set_colemak {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&to BASE>;
+        };
+        
+        set_graphite: set_graphite {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&to GRAPHITE>;
+        };
+        
+        set_qwerty: set_qwerty {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&to QWERTY>;
+        };
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_LEFT";
@@ -96,7 +117,7 @@
                 &kp Q       &kp AT      &kp HASH    &kp DLLR     &kp PRCNT         &kp CARET   &kp AMPS     &kp ASTRK    &kp PLUS    &kp BSPC
                 &kp TAB     &kp EQUAL   &kp APOS    &kp DQT      &kp EXCL          &kp BSLH    &kp LBRC     &kp LPAR     &kp LBKT    &kp SEMI
                 &kp TILDE   &kp UNDER   &kp MINUS   &kp COLON    &kp GRAVE         &kp PIPE    &kp RBRC     &kp RPAR     &kp RBKT    &kp FSLH
-                                        &to BASE    &osl NUMBERS                   &kp SPACE   &to ARROWS
+                                        &to DEFAULT_LAYER    &osl NUMBERS                   &kp SPACE   &to ARROWS
             >;
         };
 
@@ -105,8 +126,8 @@
             bindings = <
                 &kp Q       &kp AT      &kp HASH    &kp DLLR     &kp PRCNT         &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP &kp BSPC
                 &kp TAB     &kp RGUI    &mo ALT_ARROWS &mo CMD_ARROWS &kp EXCL     &kp LEFT    &kp DOWN     &kp UP       &kp RIGHT   &kp SEMI
-                &kp Z       &kp X       &mt_esc RCTRL COLON &to MOUSE  &to QWERTY &kp PIPE    &kp TAB      &kp TAB      &kp RBRC    &kp FSLH
-                                        &to BASE    &mt_ent LSHFT RET              &kp SPACE   &to PUNCT
+                &set_colemak &set_qwerty &set_graphite &to MOUSE  &kp EXCL         &kp PIPE    &kp TAB      &kp TAB      &kp RBRC    &kp FSLH
+                                        &to DEFAULT_LAYER    &mt_ent LSHFT RET              &kp SPACE   &to PUNCT
             >;
         };
 
@@ -116,7 +137,7 @@
                 &kp Q       &kp AT      &kp HASH    &kp DLLR     &kp PRCNT         &kp CARET   &kp AMPS     &kp ASTRK    &kp PLUS    &kp BSPC
                 &kp N1      &kp N2      &hm_l LALT N3 &hm_l LGUI N4  &kp EXCL          &kp TAB     &hm_r RGUI N6  &hm_r RALT N7  &kp N8      &kp N9
                 &kp Z       &kp UNDER   &kp MINUS   &kp N5       &kp GRAVE         &kp PLUS    &kp N0       &kp COMMA    &kp DOT     &kp FSLH
-                                        &to BASE    &mt_ent LSHFT RET              &kp SPACE   &to PUNCT
+                                        &to DEFAULT_LAYER    &mt_ent LSHFT RET              &kp SPACE   &to PUNCT
             >;
         };
 
@@ -146,7 +167,7 @@
                 &bootloader &none       &mmv MOVE_UP &none       &none             &none       &none        &none        &none       &bootloader
                 &none       &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &none   &msc SCRL_LEFT &msc SCRL_UP &msc SCRL_DOWN &msc SCRL_RIGHT &none
                 &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &none         &none       &none        &none        &none       &none
-                                        &to BASE    &mkp RCLK                      &mkp MCLK   &mkp LCLK
+                                        &to DEFAULT_LAYER    &mkp RCLK                      &mkp MCLK   &mkp LCLK
             >;
         };
 
@@ -156,7 +177,17 @@
                 &kp Q       &kp W       &kp E       &kp R        &kp T             &kp Y       &kp U        &kp I        &kp O       &kp P
                 &kp A       &kp S       &kp D       &kp F        &kp G             &kp H       &kp J        &kp K        &kp L       &kp SEMI
                 &kp Z       &kp X       &kp C       &kp V        &kp B             &kp N       &kp M        &kp COMMA    &kp DOT     &kp FSLH
-                                        &kp LCTRL   &kp LSHFT                      &kp SPACE   &to BASE
+                                        &kp LCTRL   &kp LSHFT                      &kp SPACE   &to DEFAULT_LAYER
+            >;
+        };
+
+        // GRAPHITE Layer
+        graphite_layer {
+            bindings = <
+                &kp B       &kp L       &kp D       &kp W        &kp Z             &kp APOS    &kp F        &kp O        &kp U       &kp J
+                &kp N       &kp R       &hm_l LALT T  &hm_l LGUI S   &kp G             &kp Y       &hm_r RGUI H   &hm_r RALT A   &kp E       &kp I
+                &kp Q       &kp X       &kp M       &kp C        &kp V             &kp K       &kp P        &kp COMMA    &kp DOT     &kp FSLH
+                                        &mt_esc RCTRL ESC  &mt_ent LSHFT RET       &mt_spc LSHFT SPACE &sl PUNCT
             >;
         };
     };
