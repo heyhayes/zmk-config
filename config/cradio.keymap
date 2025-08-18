@@ -57,6 +57,13 @@
             bindings = <&to QWERTY>;
         };
         
+        sl: sticky_layer {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            bindings = <&mo>;
+            release-after-ms = <2000>;
+        };
+        
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_LEFT";
@@ -126,7 +133,7 @@
                 &kp Q       &kp W       &kp F       &kp P        &kp B             &kp J       &kp L        &kp U        &kp Y       &kp BSPC
                 &kp A       &kp R       &hm_l LALT S  &hm_l LGUI T   &kp G             &kp M       &hm_r RGUI N   &hm_r RALT E   &kp I       &kp O
                 &kp Z       &kp X       &kp C       &kp D        &kp V             &kp K       &kp H        &kp COMMA    &kp DOT     &kp FSLH
-                                        &mt_esc RCTRL ESC  &mt_ent LSHFT RET       &mt_spc LSHFT SPACE &mo PUNCT
+                                        &mt_esc RCTRL ESC  &mt_ent LSHFT RET       &mt_spc LSHFT SPACE &sl PUNCT
             >;
         };
 
@@ -206,7 +213,7 @@
                 &kp B       &kp L       &kp D       &kp W        &kp Z             &kp APOS    &kp F        &kp O        &kp U       &kp J
                 &kp N       &kp R       &hm_l LALT T  &hm_l LGUI S   &kp G             &kp Y       &hm_r RGUI H   &hm_r RALT A   &kp E       &kp I
                 &kp Q       &kp X       &kp M       &kp C        &kp V             &kp K       &kp P        &kp COMMA    &kp DOT     &kp FSLH
-                                        &mt_esc RCTRL ESC  &mt_ent LSHFT RET       &mt_spc LSHFT SPACE &mo PUNCT
+                                        &mt_esc RCTRL ESC  &mt_ent LSHFT RET       &mt_spc LSHFT SPACE &sl PUNCT
             >;
         };
     };
