@@ -38,6 +38,19 @@
             #binding-cells = <0>;
             bindings = <&to QWERTY>;
         };
+        
+        osl: one_shot_layer {
+            compatible = "zmk,behavior-one-shot";
+            #binding-cells = <1>;
+            bindings = <&mo>;
+        };
+        
+        sl: sticky_layer {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            bindings = <&mo>;
+            release-after-ms = <2000>;
+        };
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_LEFT";
