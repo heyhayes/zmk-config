@@ -1,6 +1,6 @@
 # ZMK Configuration for Cradio (Sweep) 34-Key Split Keyboard
 
-This repository contains my personal ZMK firmware configuration for the Cradio (also known as Sweep), a minimal 34-key split keyboard. This configuration is designed for maximum typing efficiency with carefully planned layers, custom behaviors, and ergonomic considerations.
+This repository contains my personal ZMK firmware configuration for the Cradio (also known as Sweep), a minimal 34-key split keyboard. This configuration features multiple layout options (Colemak-DH, Graphite, QWERTY), chordal hold for home row mods, and sophisticated layer management designed for maximum typing efficiency.
 
 ## About the Cradio/Sweep
 
@@ -13,50 +13,72 @@ The Cradio is an open-source 34-key split keyboard designed by David Philip Barr
 ## Why This Configuration?
 
 This keymap is the result of extensive iteration to achieve:
-- **Efficient typing** with Colemak-DH layout
-- **Minimal finger movement** through strategic layer placement
-- **One-shot modifiers** to reduce pinky strain
-- **Intuitive layer access** via thumb keys and combos
+- **Multiple layout options** (Colemak-DH, Graphite, QWERTY) with dynamic switching
+- **Chordal hold** home row mods preventing same-hand misfiring
+- **One-shot layers** for efficient symbol and number access
+- **50/50 hand balance** optimization with modern layouts
 - **Programming-focused** symbol arrangement
 
 ## Layout Philosophy
 
-The keymap uses a Colemak-DH base layout with 6 total layers, custom one-shot modifiers, and intuitive layer switching through thumb keys and combos.
+The keymap supports multiple base layouts with 8 total layers, chordal hold home row mods, one-shot layers, and dynamic layout switching.
 
 ### Key Features
-- **Colemak-DH** base layout for ergonomic typing
-- **Custom one-shot modifiers** for comfortable modifier access
-- **Navigation cluster** on the Extend layer
-- **Numpad** on the Numbers layer
-- **Media controls** and F-keys on the Function layer
-- **Intuitive layer access** through thumb keys and combos
+- **Multiple base layouts**: Colemak-DH (default), Graphite, QWERTY
+- **Chordal hold home row mods** with opposite-hand rule preventing misfiring
+- **One-shot layers** for punctuation and numbers
+- **Dynamic layout switching** from arrows layer
+- **Mouse support** with movement and scroll
+- **Media controls** and brightness controls
 
 ## Layer Access
 
-### Direct Access (Hold Keys):
-- **EXTEND Layer / ESC**: Left outer thumb (hold for Extend, tap for Escape)
-- **CTRL / ENTER**: Left inner thumb (hold for Ctrl, tap for Enter) - hold-preferred
-- **SHIFT / SPACE**: Right inner thumb (hold for Shift, tap for Space) - hold-preferred
-- **SYMBOLS Layer**: Right outer thumb (hold)
+### Thumb Keys:
+- **Left inner**: Ctrl/Escape mod-tap
+- **Left outer**: Shift/Enter mod-tap  
+- **Right inner**: Shift/Space mod-tap
+- **Right outer**: One-shot punctuation layer
 
-### Combo Access:
-- **NUMBERS Layer**: Hold both inner thumb keys (CTRL/ENTER + SHIFT/SPACE)
-- **FUNCTION Layer**: Hold both outer thumb keys (EXTEND/ESC + SYMBOLS)
+### Layer Navigation:
+- **Arrows layer**: From punctuation layer
+- **Numbers layer**: One-shot from punctuation layer
+- **Mouse layer**: From arrows layer
+- **Layout switching**: From arrows layer (Colemak/Graphite/QWERTY)
+
+### Home Row Mods (Chordal Hold):
+- **Left hand**: Alt (S), Gui (T) - only trigger with right hand keys
+- **Right hand**: Gui (N), Alt (E) - only trigger with left hand keys
 
 ## Complete Layer Layouts
 
-### BASE Layer (0) - Colemak-DH
+### BASE Layer (0) - Colemak-DH (Default)
 ```
 ┌───┬───┬───┬───┬───┐   ┌───┬───┬───┬───┬───┐
 │ Q │ W │ F │ P │ B │   │ J │ L │ U │ Y │BSP│
 ├───┼───┼───┼───┼───┤   ├───┼───┼───┼───┼───┤
-│ A │ R │ S │ T │ G │   │ M │ N │ E │ I │ O │
+│ A │ R │SA │TG │ G │   │ M │NG │AE │ I │ O │
 ├───┼───┼───┼───┼───┤   ├───┼───┼───┼───┼───┤
 │ Z │ X │ C │ D │ V │   │ K │ H │ , │ . │ / │
 └───┴───┴───┼───┼───┤   ├───┼───┼───┴───┴───┘
-            │E/E│C/E│   │S/S│SYM│
+            │CE │SE │   │SS │PU │
             └───┴───┘   └───┴───┘
 ```
+*SA=S+Alt, TG=T+Gui, NG=N+Gui, AE=A+Alt (chordal hold)*
+*CE=Ctrl/Esc, SE=Shift/Enter, SS=Shift/Space, PU=Punct(osl)*
+
+### GRAPHITE Layer (8) - Alternative Layout
+```
+┌───┬───┬───┬───┬───┐   ┌───┬───┬───┬───┬───┐
+│ B │ L │ D │ W │ Z │   │ ' │ F │ O │ U │ J │
+├───┼───┼───┼───┼───┤   ├───┼───┼───┼───┼───┤
+│ N │ R │TA│ SG│ G │   │ Y │HG │AE │ E │ I │
+├───┼───┼───┼───┼───┤   ├───┼───┼───┼───┼───┤
+│ Q │ X │ M │ C │ V │   │ K │ P │ , │ . │ / │
+└───┴───┴───┼───┼───┤   ├───┼───┼───┴───┴───┘
+            │CE │SE │   │SS │PU │
+            └───┴───┘   └───┴───┘
+```
+*Optimized for hand alternation and reduced same-finger bigrams*
 
 ### SHIFT Layer (1) - Shifted Characters
 ```
