@@ -14,6 +14,7 @@
 #define MOUSE 6
 #define QWERTY 7
 #define GRAPHITE 8
+#define FUNCTION 9
 
 // Default base layer - change this to switch layouts
 #define DEFAULT_LAYER BASE  // Options: BASE (Colemak), QWERTY, GRAPHITE
@@ -123,6 +124,13 @@
     // Combos can be added here if needed
     combos {
         compatible = "zmk,combos";
+        
+        // Function layer combo - outer thumbs
+        combo_function {
+            bindings = <&mo FUNCTION>;
+            key-positions = <30 33>; // left outer + right outer thumbs
+            timeout-ms = <50>;
+        };
     };
 
     keymap {
@@ -215,6 +223,16 @@
                 &kp N       &kp R       &hm_l LALT T  &hm_l LGUI S   &kp G             &kp Y       &hm_r RGUI H   &hm_r RALT A   &kp E       &kp I
                 &kp Q       &kp X       &kp M       &kp C        &kp V             &kp K       &kp P        &kp COMMA    &kp DOT     &kp FSLH
                                         &mt_esc RCTRL ESC  &mt_ent LSHFT RET       &mt_spc LSHFT SPACE &to DEFAULT_LAYER
+            >;
+        };
+
+        // FUNCTION Layer
+        function_layer {
+            bindings = <
+                &kp Q       &kp AT      &kp HASH    &kp DLLR     &kp PRCNT         &kp CARET   &kp AMPS     &kp ASTRK    &kp PLUS    &kp BSPC
+                &kp F1      &kp F2      &hm_l LALT F3 &hm_l LGUI F4  &kp EXCL          &kp TAB     &hm_r RGUI F6  &hm_r RALT F7  &kp F8      &kp F9
+                &kp Z       &kp UNDER   &kp MINUS   &kp F5       &kp GRAVE         &kp PLUS    &kp F10      &kp F11      &kp F12     &kp FSLH
+                                        &to DEFAULT_LAYER    &mt_ent LSHFT RET              &kp SPACE   &to PUNCT
             >;
         };
     };
