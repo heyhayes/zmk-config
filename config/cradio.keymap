@@ -62,6 +62,7 @@
             #binding-cells = <1>;
             bindings = <&mo>;
             release-after-ms = <2000>;
+            ignore-modifiers;
         };
         
         hm_l: homerow_mods_left {
@@ -213,7 +214,7 @@
                 &kp B       &kp L       &kp D       &kp W        &kp Z             &kp APOS    &kp F        &kp O        &kp U       &kp J
                 &kp N       &kp R       &hm_l LALT T  &hm_l LGUI S   &kp G             &kp Y       &hm_r RGUI H   &hm_r RALT A   &kp E       &kp I
                 &kp Q       &kp X       &kp M       &kp C        &kp V             &kp K       &kp P        &kp COMMA    &kp DOT     &kp FSLH
-                                        &mt_esc RCTRL ESC  &mt_ent LSHFT RET       &mt_spc LSHFT SPACE &lt PUNCT SPACE
+                                        &mt_esc RCTRL ESC  &mt_ent LSHFT RET       &mt_spc LSHFT SPACE &to DEFAULT_LAYER
             >;
         };
     };
